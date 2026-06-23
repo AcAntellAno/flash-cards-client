@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Card from './components/cards/Card';
 import CardDeck from './components/cards/CardDeck';
+import GameLoop from './components/main/GameLoop';
 
 const AppContainer = styled.div`
   display: flex;
@@ -43,11 +44,21 @@ function App() {
               ],
             },
             {
-              category: 'React',
-              displayTitle: 'React',
+              category: 'interview',
+              displayTitle: 'Interview Prep',
               cards: [
                 {
-                  category: 'React',
+                  category: 'Interview',
+                  question: <div>This is my question</div>,
+                  answer: <div>This is my answer</div>,
+                },
+                {
+                  category: 'Interview',
+                  question: <div>This is my question</div>,
+                  answer: <div>This is my answer</div>,
+                },
+                {
+                  category: 'Interview',
                   question: <div>This is my question</div>,
                   answer: <div>This is my answer</div>,
                 },
@@ -58,11 +69,7 @@ function App() {
       </LeftItem>
       <CenterItem>
         <h2>Current Card:</h2>
-        <Card
-          category="react"
-          question="This is my question"
-          answer="this is my answer"
-        />
+        <GameLoop />
       </CenterItem>
       <RightItem>
         <h2>Study Buddy LLM Chat</h2>
