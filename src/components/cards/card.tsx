@@ -110,7 +110,6 @@ const Card = (props: CardProps) => {
         </CardFace>
 
         <CardFaceBack>
-          <CardItem>Answer Category: {category}</CardItem>
           <CenterItem>{answer}</CenterItem>
           <ButtonContainer>
             <RevealButton onClick={() => setIsFlipped(false)}>
