@@ -99,7 +99,6 @@ const Card = (props: CardProps) => {
   return (
     <CardContainer>
       <StyledCard $isFlipped={isFlipped}>
-        {/* FRONT FACE */}
         <CardFace>
           <CardItem>Question Category: {category}</CardItem>
           <CenterItem>{question}</CenterItem>
@@ -110,7 +109,6 @@ const Card = (props: CardProps) => {
           </ButtonContainer>
         </CardFace>
 
-        {/* BACK FACE */}
         <CardFaceBack>
           <CardItem>Answer Category: {category}</CardItem>
           <CenterItem>{answer}</CenterItem>
