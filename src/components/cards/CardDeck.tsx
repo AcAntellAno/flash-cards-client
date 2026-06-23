@@ -4,14 +4,15 @@ import type { CardProps } from './Card';
 import CreateNewCard from '../creation/CreateNewCard';
 import CreateNewDeck from '../creation/CreateNewDeck';
 
-interface CardDeck {
+export interface CardDeck {
   category: string;
   displayTitle: string;
   cards: CardProps[];
 }
 
-interface CardDeckProps {
+export interface CardDeckProps {
   decks: CardDeck[];
+  onSelectDeck: (deck: CardDeck) => void;
 }
 
 const CardDeckWindow = styled.div`
@@ -19,11 +20,12 @@ const CardDeckWindow = styled.div`
   height: fit-content;
 `;
 
-const CardContainer = styled.div`
-  border: 2px solid #897085;
+const CardContainer = styled.button`
+  /* border: 2px solid #897085; */
+  width: stretch;
   margin: 20px;
   border-radius: 20px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
   transform-origin: bottom center;
   transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow:
@@ -33,7 +35,6 @@ const CardContainer = styled.div`
     /* The second layer shadow */ 0 -10px 1px -4px rgba(0, 0, 0, 0.8),
     /* The third layer */ 0 -20px 0 -10px #eee,
     /* The third layer shadow */ 0 -20px 1px -9px rgba(0, 0, 0, 0.8);
-  /* Padding for demo purposes */
   padding: 30px;
   &:hover {
     cursor: pointer;
@@ -42,7 +43,7 @@ const CardContainer = styled.div`
 `;
 
 const CardDeck = (props: CardDeckProps) => {
-  const { decks } = props;
+  const { decks, onSelectDeck } = props;
 
   const getDeckCount = (cards: CardProps[]) => {
     if (cards.length === 0) return 0;
@@ -52,7 +53,7 @@ const CardDeck = (props: CardDeckProps) => {
   return (
     <CardDeckWindow>
       {decks.map((deck) => (
-        <CardContainer>
+        <CardContainer onClick={() => onSelectDeck(deck)}>
           <h2>{deck.displayTitle}</h2> <p>{getDeckCount(deck.cards)}</p>
           <CreateNewCard />
         </CardContainer>

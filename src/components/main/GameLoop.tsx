@@ -1,12 +1,20 @@
 import Card from '../cards/Card';
+import type { CardDeck } from '../cards/CardDeck';
 
-const GameLoop = () => {
+interface GameLoopProps {
+  activeDeck: CardDeck;
+}
+
+const GameLoop = ({ activeDeck }: GameLoopProps) => {
+  console.log('activeDeck: ', activeDeck);
   return (
-    <Card
-      category="react"
-      question="This is my question"
-      answer="this is my answer"
-    />
+    <>
+      <Card
+        category="react"
+        question="This is my question"
+        answer="this is my answer"
+      />
+    </>
   );
 };
 

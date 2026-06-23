@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Card from './components/cards/Card';
 import CardDeck from './components/cards/CardDeck';
+import type { CardDeck as CardDeckType } from './components/cards/CardDeck';
 import GameLoop from './components/main/GameLoop';
+import { cardDecks } from './cardDeck';
 
 const AppContainer = styled.div`
   display: flex;
@@ -26,50 +29,19 @@ const RightItem = styled.div`
 `;
 
 function App() {
+  const [activeDeck, setActiveDeck] = useState<CardDeckType | null>(null);
   return (
     <AppContainer>
       <LeftItem>
         <h2>Note Card Topics:</h2>
         <CardDeck
-          decks={[
-            {
-              category: 'React',
-              displayTitle: 'React',
-              cards: [
-                {
-                  category: 'React',
-                  question: <div>This is my question</div>,
-                  answer: <div>This is my answer</div>,
-                },
-              ],
-            },
-            {
-              category: 'interview',
-              displayTitle: 'Interview Prep',
-              cards: [
-                {
-                  category: 'Interview',
-                  question: <div>This is my question</div>,
-                  answer: <div>This is my answer</div>,
-                },
-                {
-                  category: 'Interview',
-                  question: <div>This is my question</div>,
-                  answer: <div>This is my answer</div>,
-                },
-                {
-                  category: 'Interview',
-                  question: <div>This is my question</div>,
-                  answer: <div>This is my answer</div>,
-                },
-              ],
-            },
-          ]}
+          decks={cardDecks}
+          onSelectDeck={(deck) => setActiveDeck(deck)}
         />
       </LeftItem>
       <CenterItem>
         <h2>Current Card:</h2>
-        <GameLoop />
+        {activeDeck && <GameLoop activeDeck={activeDeck} />}
       </CenterItem>
       <RightItem>
         <h2>Study Buddy LLM Chat</h2>
