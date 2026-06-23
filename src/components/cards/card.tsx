@@ -10,7 +10,6 @@ interface CardProps {
   next?: ReactNode;
 }
 
-// 1. Explicitly type the transient prop for StyledCard
 interface StyledCardProps {
   $isFlipped: boolean;
 }
@@ -20,7 +19,7 @@ const CardContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  perspective: 1000px; /* Crucial for the 3D depth effect */
+  perspective: 1000px; // Crucial for the 3D depth effect
 `;
 
 const StyledCard = styled.section<StyledCardProps>`
@@ -28,8 +27,8 @@ const StyledCard = styled.section<StyledCardProps>`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  min-height: 300px; /* Give the card a structural baseline height */
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Added slight bounce */
+  min-height: 300px; // Give the card a structural baseline height
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); // Added slight bounce
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
@@ -46,7 +45,7 @@ const CardFace = styled.div`
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
-  backface-visibility: hidden; /* Hides the reverse side when turned away */
+  backface-visibility: hidden; // Hides the reverse side when turned away
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #faebd7;
