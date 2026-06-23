@@ -14,18 +14,23 @@ const CardContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #faebd7;
+  color: #2b2b2b;
+  border: 1px solid #faebd7;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 20px;
 `;
 
 const StyledCard = styled.section`
-  width: 40rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid yellow;
 `;
 
 const CardItem = styled.div`
-  border: 2px solid green;
+  /* border: 2px solid green; */
 `;
 
 const CenterItem = styled.div`
@@ -40,7 +45,7 @@ const ButtonContainer = styled.div`
 `;
 
 const RevealButton = styled.button`
-  border: 2px solid blue;
+  border: 2px solid #2b2b2b;
   border-radius: 20%;
   padding: 10px;
   display: flex;

@@ -4,7 +4,8 @@ import Card from './components/cards/card';
 const AppContainer = styled.div`
   display: flex;
   width: 100%;
-  gap: 10px;
+  gap: 50px;
+  padding-top: 2rem;
   @media (max-width: 768px) {
     flex-direction: column;
   }
