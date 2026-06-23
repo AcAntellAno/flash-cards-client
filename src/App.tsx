@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import Card from './components/cards/card';
+import Card from './components/cards/Card';
+import CardDeck from './components/cards/CardDeck';
 
 const AppContainer = styled.div`
   display: flex;
@@ -28,10 +29,31 @@ function App() {
     <AppContainer>
       <LeftItem>
         <h2>Note Card Topics:</h2>
-        <Card
-          category="react"
-          question="This is my question"
-          answer="this is my answer"
+        <CardDeck
+          decks={[
+            {
+              category: 'React',
+              displayTitle: 'React',
+              cards: [
+                {
+                  category: 'React',
+                  question: <div>This is my question</div>,
+                  answer: <div>This is my answer</div>,
+                },
+              ],
+            },
+            {
+              category: 'React',
+              displayTitle: 'React',
+              cards: [
+                {
+                  category: 'React',
+                  question: <div>This is my question</div>,
+                  answer: <div>This is my answer</div>,
+                },
+              ],
+            },
+          ]}
         />
       </LeftItem>
       <CenterItem>

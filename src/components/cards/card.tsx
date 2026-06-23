@@ -2,8 +2,8 @@ import React from 'react';
 import type { ReactNode } from 'react';
 import styled from 'styled-components';
 
-interface CardProps {
-  category: string;
+export interface CardProps {
+  category?: string;
   question: ReactNode;
   answer: ReactNode;
   prev?: ReactNode;
