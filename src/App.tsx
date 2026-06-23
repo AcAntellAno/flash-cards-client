@@ -27,6 +27,7 @@ function App() {
   return (
     <AppContainer>
       <LeftItem>
+        <h2>Note Card Topics:</h2>
         <Card
           category="react"
           question="This is my question"
@@ -34,6 +35,7 @@ function App() {
         />
       </LeftItem>
       <CenterItem>
+        <h2>Current Card:</h2>
         <Card
           category="react"
           question="This is my question"
@@ -41,6 +43,7 @@ function App() {
         />
       </CenterItem>
       <RightItem>
+        <h2>Study Buddy LLM Chat</h2>
         <Card
           category="react"
           question="This is my question"
