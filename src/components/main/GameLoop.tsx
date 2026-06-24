@@ -15,7 +15,10 @@ const GameLoop = ({ activeDeck }: GameLoopProps) => {
   };
 
   const handlePrevious = () => {
-    setCurrentCard((prevIdx) => (prevIdx - 1) % cards.length);
+    setCurrentCard((prevIdx) => {
+      if (prevIdx === 0) return 0;
+      return (prevIdx - 1) % cards.length;
+    });
   };
   console.log('activeDeck: ', activeDeck);
   console.log('currIdx: ', currentCard);
@@ -27,7 +30,12 @@ const GameLoop = ({ activeDeck }: GameLoopProps) => {
         question={cards[currentCard].question}
         answer={cards[currentCard].answer}
       />
-      <button onClick={handlePrevious}>Previous</button>
+      <button
+        onClick={handlePrevious}
+        disabled={currentCard === 0 ? true : false}
+      >
+        Previous
+      </button>
       <button onClick={handleNext}>Next</button>
     </div>
   );
