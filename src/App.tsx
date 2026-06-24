@@ -40,8 +40,9 @@ function App() {
         />
       </LeftItem>
       <CenterItem>
-        <h2>Current Card:</h2>
-        {activeDeck && <GameLoop activeDeck={activeDeck} />}
+        {activeDeck && (
+          <GameLoop activeDeck={activeDeck} key={activeDeck.category} />
+        )}
       </CenterItem>
       <RightItem>
         <h2>Study Buddy LLM Chat</h2>

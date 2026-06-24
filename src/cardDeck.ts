@@ -7,7 +7,12 @@ export const cardDecks: CardDeck[] = [
     cards: [
       {
         category: 'React',
-        question: '<div>What is a React closure?',
+        question: 'How does react render a component?',
+        answer: 'A function that remembers its outer variables',
+      },
+      {
+        category: 'React',
+        question: 'What are refs in react',
         answer: 'A function that remembers its outer variables',
       },
     ],
@@ -17,19 +22,19 @@ export const cardDecks: CardDeck[] = [
     displayTitle: 'Interview Prep',
     cards: [
       {
-        category: 'React',
-        question: '<div>What is a React closure?',
+        category: 'interview',
+        question: 'What is bigger O(n) or O(n^2)?',
+        answer: 'O(n^2)',
+      },
+      {
+        category: 'interview',
+        question: 'What is a React closure?',
         answer: 'A function that remembers its outer variables',
       },
       {
-        category: 'React',
-        question: '<div>What is a React closure?',
-        answer: 'A function that remembers its outer variables',
-      },
-      {
-        category: 'React',
-        question: '<div>What is a React closure?',
-        answer: 'A function that remembers its outer variables',
+        category: 'interview',
+        question: 'What is state in react?',
+        answer: 'state is a variable',
       },
     ],
   },
