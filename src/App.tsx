@@ -1,10 +1,6 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import Card from './components/cards/Card';
-import CardDeck from './components/cards/CardDeck';
-import type { CardDeck as CardDeckType } from './components/cards/CardDeck';
-import GameLoop from './components/main/GameLoop';
-import { cardDecks } from './cardDeck';
+import GameLayout from './components/main/GameLayout';
 
 const AppContainer = styled.div`
   display: flex;
@@ -16,34 +12,14 @@ const AppContainer = styled.div`
   }
 `;
 
-const LeftItem = styled.div`
-  flex: 2;
-`;
-
-const CenterItem = styled.div`
-  flex: 4;
-`;
-
 const RightItem = styled.div`
   flex: 2;
 `;
 
 function App() {
-  const [activeDeck, setActiveDeck] = useState<CardDeckType | null>(null);
   return (
     <AppContainer>
-      <LeftItem>
-        <h2>Note Card Topics:</h2>
-        <CardDeck
-          decks={cardDecks}
-          onSelectDeck={(deck) => setActiveDeck(deck)}
-        />
-      </LeftItem>
-      <CenterItem>
-        {activeDeck && (
-          <GameLoop activeDeck={activeDeck} key={activeDeck.category} />
-        )}
-      </CenterItem>
+      <GameLayout />
       <RightItem>
         <h2>Study Buddy LLM Chat</h2>
         <Card
