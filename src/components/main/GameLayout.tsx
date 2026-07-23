@@ -32,11 +32,17 @@ const GameLayout = () => {
     setDecks(getStoredDecks());
   });
 
+  const selectDeck = (deck: CardDeckType) => {
+    if (deck.cards.length === 0)
+      return console.warn('Cannot select empty deck');
+    setActiveDeck(deck);
+  };
+
   return (
     <>
       <LeftItem>
         <h2>Note Card Topics:</h2>
-        <CardDeck decks={decks} onSelectDeck={(deck) => setActiveDeck(deck)} />
+        <CardDeck decks={decks} onSelectDeck={(deck) => selectDeck(deck)} />
         <ActionRow>
           <CreateNewDeck />
           <CreateNewCard />
