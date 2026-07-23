@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface IModal {
   buttonText: string;
@@ -7,13 +7,19 @@ interface IModal {
 
 const Modal = (props: IModal) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    dialogRef.current?.showModal();
+  }, [isOpen]);
 
   const { children, buttonText } = props;
   return (
-    <div>
+    <section>
       <button onClick={() => setIsOpen(!isOpen)}>{buttonText}</button>
-      {isOpen ? <>{children}</> : null}
-    </div>
+      <dialog ref={dialogRef}>{isOpen && <>{children}</>}</dialog>
+    </section>
   );
 };
 
