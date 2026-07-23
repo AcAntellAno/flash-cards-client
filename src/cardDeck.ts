@@ -1,6 +1,6 @@
 import type { CardDeck } from './components/cards/CardDeck';
 
-export const cardDecks: CardDeck[] = [
+export const mockCardDecks: CardDeck[] = [
   {
     id: 'react-fundamentals',
     category: 'React',

@@ -1,4 +1,4 @@
-import CreateDeckForm from '../cards/CreateDeckForm';
+import CreateDeckForm from './CreateDeckForm';
 import Modal from '../cards/Modal';
 
 const CreateNewDeck = () => {

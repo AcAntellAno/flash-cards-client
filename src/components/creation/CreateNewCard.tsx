@@ -1,4 +1,4 @@
-import CreateCardForm from '../cards/CreateCardForm';
+import CreateCardForm from './CreateCardForm';
 import Modal from '../cards/Modal';
 
 const CreateNewCard = () => {

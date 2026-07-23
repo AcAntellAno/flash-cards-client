@@ -1,5 +1,5 @@
 import type { CardDeck } from '../components/cards/CardDeck';
-import type { ICard } from '../components/cards/CreateCardForm';
+import type { ICard } from '../components/creation/CreateCardForm';
 
 export const DECKS_STORAGE_KEY = 'decks';
 

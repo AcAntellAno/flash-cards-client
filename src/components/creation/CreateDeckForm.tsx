@@ -1,4 +1,4 @@
-import type { CardDeck } from './CardDeck';
+import type { CardDeck } from '../cards/CardDeck';
 import { saveDeck } from '../../utils/deckStorage';
 
 const CreateDeckForm = () => {
