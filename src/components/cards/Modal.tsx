@@ -12,7 +12,7 @@ const Modal = (props: IModal) => {
   return (
     <div>
       <button onClick={() => setIsOpen(!isOpen)}>{buttonText}</button>
-      <dialog id="modal">{isOpen ? <>{children}</> : null}</dialog>
+      {isOpen ? <>{children}</> : null}
     </div>
   );
 };
