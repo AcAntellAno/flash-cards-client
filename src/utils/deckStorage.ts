@@ -27,6 +27,7 @@ export function saveDeck(deck: CardDeck): CardDeck[] {
     : [...storedDecks, deck];
 
   localStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(updatedDecks));
+  window.dispatchEvent(new Event('local-storage'));
   return updatedDecks;
 }
 

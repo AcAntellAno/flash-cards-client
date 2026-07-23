@@ -29,7 +29,6 @@ const CreateCardForm = () => {
     const question = formData.get('question');
     const category = formData.get('category');
     const answer = formData.get('answer');
-    console.log('cateogyr: ', category);
 
     const newCard: ICard = {
       id: crypto.randomUUID(),
