@@ -1,8 +1,6 @@
 // import React, { type ReactNode } from 'react';
 import styled from 'styled-components';
 import type { CardProps } from './Card';
-import CreateNewCard from '../creation/CreateNewCard';
-import CreateNewDeck from '../creation/CreateNewDeck';
 
 export interface CardDeck {
   id: string;
@@ -58,8 +56,6 @@ const CardDeck = (props: CardDeckProps) => {
           <h2>{deck.displayTitle}</h2> <p>{getDeckCount(deck.cards)}</p>
         </CardContainer>
       ))}
-      <CreateNewDeck />
-      <CreateNewCard />
     </CardDeckWindow>
   );
 };

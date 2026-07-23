@@ -44,5 +44,7 @@ export function saveCard(deckId: string, card: ICard): CardDeck[] | null {
   );
 
   localStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(updatedDecks));
+  window.dispatchEvent(new Event('local-storage'));
+
   return updatedDecks;
 }
