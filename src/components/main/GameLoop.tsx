@@ -20,8 +20,7 @@ const GameLoop = ({ activeDeck }: GameLoopProps) => {
       return (prevIdx - 1) % cards.length;
     });
   };
-  console.log('activeDeck: ', activeDeck);
-  console.log('currIdx: ', currentCard);
+
   return (
     <div>
       <h2>{displayTitle}</h2>

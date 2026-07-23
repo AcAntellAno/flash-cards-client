@@ -1,10 +1,9 @@
 // import React, { type ReactNode } from 'react';
 import styled from 'styled-components';
 import type { CardProps } from './Card';
-import CreateNewCard from '../creation/CreateNewCard';
-import CreateNewDeck from '../creation/CreateNewDeck';
 
 export interface CardDeck {
+  id: string;
   category: string;
   displayTitle: string;
   cards: CardProps[];
@@ -55,10 +54,8 @@ const CardDeck = (props: CardDeckProps) => {
       {decks.map((deck) => (
         <CardContainer onClick={() => onSelectDeck(deck)}>
           <h2>{deck.displayTitle}</h2> <p>{getDeckCount(deck.cards)}</p>
-          <CreateNewCard />
         </CardContainer>
       ))}
-      <CreateNewDeck />
     </CardDeckWindow>
   );
 };
