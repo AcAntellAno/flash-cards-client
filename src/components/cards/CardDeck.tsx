@@ -5,6 +5,7 @@ import CreateNewCard from '../creation/CreateNewCard';
 import CreateNewDeck from '../creation/CreateNewDeck';
 
 export interface CardDeck {
+  id: string;
   category: string;
   displayTitle: string;
   cards: CardProps[];
@@ -55,10 +56,10 @@ const CardDeck = (props: CardDeckProps) => {
       {decks.map((deck) => (
         <CardContainer onClick={() => onSelectDeck(deck)}>
           <h2>{deck.displayTitle}</h2> <p>{getDeckCount(deck.cards)}</p>
-          <CreateNewCard />
         </CardContainer>
       ))}
       <CreateNewDeck />
+      <CreateNewCard />
     </CardDeckWindow>
   );
 };

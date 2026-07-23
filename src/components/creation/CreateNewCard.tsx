@@ -1,5 +1,8 @@
+import CreateCardForm from '../cards/CreateCardForm';
+import Modal from '../cards/Modal';
+
 const CreateNewCard = () => {
-  return <>Create a new card</>;
+  return <Modal buttonText="Create New Card" children={<CreateCardForm />} />;
 };
 
 export default CreateNewCard;

@@ -2,6 +2,7 @@ import type { CardDeck } from './components/cards/CardDeck';
 
 export const cardDecks: CardDeck[] = [
   {
+    id: 'react-fundamentals',
     category: 'React',
     displayTitle: 'React Fundamentals',
     cards: [
@@ -18,6 +19,7 @@ export const cardDecks: CardDeck[] = [
     ],
   },
   {
+    id: 'interview-prep',
     category: 'interview',
     displayTitle: 'Interview Prep',
     cards: [

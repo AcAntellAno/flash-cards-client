@@ -1,5 +1,8 @@
+import CreateDeckForm from '../cards/CreateDeckForm';
+import Modal from '../cards/Modal';
+
 const CreateNewDeck = () => {
-  return <h2>Create new Deck</h2>;
+  return <Modal buttonText="Create New Deck" children={<CreateDeckForm />} />;
 };
 
 export default CreateNewDeck;
