@@ -39,12 +39,35 @@ const CloseButton = styled.button`
 
 const Modal = (props: IModal) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openCount, setOpenCount] = useState(0);
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
+  // had to sync isOpen and dialog.close() because user can hit escape key
+  // which is a valid (and browser native way) way to escape a modal, but my states wont update
+  // so need to sync the 2
   useEffect(() => {
-    if (!isOpen) return;
-    dialogRef.current?.showModal();
+    const dialog = dialogRef?.current;
+    if (!dialog) return;
+
+    if (isOpen) dialog.showModal();
+    else dialog.close();
   }, [isOpen]);
+
+  useEffect(() => {
+    const dialog = dialogRef?.current;
+    if (!dialog) return;
+
+    const handleNativeClose = () => {
+      setIsOpen(false);
+    };
+    dialog.addEventListener('close', handleNativeClose);
+    return () => dialog.removeEventListener('close', handleNativeClose);
+  }, []);
+
+  const openModal = () => {
+    setOpenCount((prev) => prev + 1);
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
     dialogRef.current?.close();
@@ -53,10 +76,10 @@ const Modal = (props: IModal) => {
   const { children, buttonText } = props;
   return (
     <ModalContainer>
-      <button onClick={() => setIsOpen(!isOpen)}>{buttonText}</button>
+      <button onClick={openModal}>{buttonText}</button>
       <StyledModal ref={dialogRef}>
         {isOpen && (
-          <ModalContents>
+          <ModalContents key={openCount}>
             <CloseButton onClick={() => closeModal()}>X</CloseButton>
             {children}
           </ModalContents>

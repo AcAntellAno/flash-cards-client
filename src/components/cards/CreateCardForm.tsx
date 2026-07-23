@@ -1,4 +1,10 @@
+import styled from 'styled-components';
 import { getStoredDecks, saveCard } from '../../utils/deckStorage';
+
+const Container = styled.section`
+  display: flex;
+  gap: 1rem;
+`;
 
 export interface ICard {
   id: string;
@@ -35,7 +41,7 @@ const CreateCardForm = () => {
   };
 
   return (
-    <section>
+    <Container>
       <form onSubmit={onSubmitHandler}>
         <label htmlFor="name">Category:</label>
         <select name="category" id="category" onClick={getCardCategories}>
@@ -54,7 +60,7 @@ const CreateCardForm = () => {
 
         <button type="submit">Create</button>
       </form>
-    </section>
+    </Container>
   );
 };
 
