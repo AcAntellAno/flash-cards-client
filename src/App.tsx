@@ -1,6 +1,13 @@
 import styled from 'styled-components';
-import Card from './components/cards/Card';
 import GameLayout from './components/main/GameLayout';
+import ChatWindow from './components/llm/ChatWindow';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 const AppContainer = styled.div`
   display: flex;
@@ -18,17 +25,14 @@ const RightItem = styled.div`
 
 function App() {
   return (
-    <AppContainer>
-      <GameLayout />
-      <RightItem>
-        <h2>Study Buddy LLM Chat</h2>
-        <Card
-          category="react"
-          question="This is my question"
-          answer="this is my answer"
-        />
-      </RightItem>
-    </AppContainer>
+    <ThemeProvider theme={darkTheme}>
+      <AppContainer>
+        <GameLayout />
+        <RightItem>
+          <ChatWindow />
+        </RightItem>
+      </AppContainer>
+    </ThemeProvider>
   );
 }
 
